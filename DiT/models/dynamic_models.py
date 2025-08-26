@@ -240,7 +240,7 @@ class DiT(nn.Module):
         from models.router_models import Router, STE
 
         act_layer, total_layer = 0, 0
-        ckpt = torch.load(path, map_location='cpu')['routers']
+        ckpt = torch.load(path, map_location='cpu',weights_only=False)['routers']
         routers = torch.nn.ModuleList([
             Router(2*self.depth) for _ in range(num_steps)
         ])
