@@ -53,7 +53,7 @@ def main(args):
     model.load_state_dict(state_dict)
     model.eval()  # important!
     vae = AutoencoderKL.from_pretrained(f"stabilityai/sd-vae-ft-{args.vae}").to(device)
-
+    print(f'This is state dict : \n {state_dict}')
     torch.manual_seed(args.seed)
     # Labels to condition the model with (feel free to change):
     class_labels = [207, 992, 387, 974, 142, 979, 417, 279]
